@@ -123,6 +123,10 @@ Profile.prototype.money = function (amount) {
 	return label('Money') + amount + currencyName(amount);
 };
 
+Profile.prototype.title = function (about) {
+	return label('Title') + about ;
+};
+
 Profile.prototype.name = function () {
 	return label('Name') + bold(font(color(toId(this.username)), this.username));
 };
@@ -139,14 +143,21 @@ Profile.prototype.vip = function () {
 	return '';
 };
 
+Profile.prototype.dev = function () {
+	if (typeof this.user === 'string' && toId(this.user) in Users.vips) return ' (<font color=#6390F0><b>Dev</b></font>)';
+	if (this.user && this.user.userid in Users.vips) return ' (<font color=darkblue><b>Dev</b></font>)';
+	return '';
+};
+
 Profile.prototype.show = function (callback) {
 	let userid = toId(this.username);
 
 	return this.buttonAvatar() +
 		SPACE + this.name() + BR +
-		SPACE + this.group() + this.vip() + BR +
+		SPACE + this.group() + this.vip() + this.dev() + BR +
 		SPACE + this.money(Db('money').get(userid, 0)) + BR +
-		SPACE + this.seen(Db('seen').get(userid)) +
+		SPACE + this.title(Db('title').get(userid, 0)) + BR +
+		SPACE + this.seen(Db('seen').get(userid))  +
 		'<br clear="all">';
 };
 
