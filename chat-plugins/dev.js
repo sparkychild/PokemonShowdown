@@ -1,3 +1,8 @@
+/**
+ * Server Dev Plugin by MasterCris
+ * can be edited for the reasion 
+ **/
+
 var fs = require('fs');
 
 function loadDevs() {
