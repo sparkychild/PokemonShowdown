@@ -21,9 +21,9 @@ exports.commands = {
 		if (!this.can('forcewin')) return false;
 		if (!target || target.indexOf(',') < 0) return this.parse('/help givetitle');
 
-		let parts = target.split(',').map(p => p.trim());
+		let parts = target.split(',');
 		let username = toId(parts[0]);
-		let title = parts[1];
+		let title = parts.slice(1).join(", ").trim();
 
 		if (!title.length || title.length > 100) return this.errorReply("The title must be between 1 and 100 characters long.");
 
