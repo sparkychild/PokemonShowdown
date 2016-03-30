@@ -31,7 +31,7 @@ exports.commands = {
 		
 		this.sendReply(username + " was given " + title + ". ");
 		if (Users.get(username)) Users(username).popup(user.name + " has given you the title: ||||" + title);
-		logAbout(username + " was given the title \"" + title + "\" by " + user.name + ".");
+		logTitle(username + " was given the title \"" + title + "\" by " + user.name + ".");
 	},
 	givetitlehelp: ["/givetitle [user], [title] - Give a user a Title."],
 };
