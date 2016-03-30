@@ -123,8 +123,8 @@ Profile.prototype.money = function (amount) {
 	return label('Money') + amount + currencyName(amount);
 };
 
-Profile.prototype.title = function (about) {
-	return label('Title') + about ;
+Profile.prototype.about = function (title) {
+	return label('About') + title ;
 };
 
 Profile.prototype.name = function () {
@@ -154,9 +154,10 @@ Profile.prototype.show = function (callback) {
 
 	return this.buttonAvatar() +
 		SPACE + this.name() + BR +
+		SPACE + this.about(Db('about').get(userid, 0)) + BR +
 		SPACE + this.group() + this.vip() + this.dev() + BR +
 		SPACE + this.money(Db('money').get(userid, 0)) + BR +
-		SPACE + this.title(Db('title').get(userid, 0)) + BR +
+		SPACE + this.about(Db('about').get(userid, 0)) + BR +
 		SPACE + this.seen(Db('seen').get(userid))  +
 		'<br clear="all">';
 };
