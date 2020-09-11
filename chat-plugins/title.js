@@ -12,10 +12,10 @@ let path = require('path');
 
 
 
-'use strict';
+// 'use strict';
 
-let fs = require('fs');
-let path = require('path');
+// let fs = require('fs');
+// let path = require('path');
 
 
 
@@ -76,7 +76,7 @@ function logTitle(message) {
 	*end
 	*/
 
-	exports.commands = {
+	// exports.commands = {
 		
 		 
 	givetitle: function (target, room, user) {
